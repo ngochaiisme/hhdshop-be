@@ -4,9 +4,7 @@ const getAllProducts = async (req, res) => {
     try {
         let allProducts = await Product.find();
 
-        res.status(200).json({
-            allProducts,
-        });
+        res.status(200).json(allProducts);
     } catch (err) {
         res.status(500).json({
             message: 'Có lỗi xảy ra',
@@ -26,9 +24,7 @@ const getProductById = async (req, res) => {
                 message: 'Product not found',
             });
         }
-        res.status(200).json({
-            product,
-        });
+        res.status(200).json(product);
     } catch (err) {
         res.status(500).json({
             message: `Error: ${err}`,
