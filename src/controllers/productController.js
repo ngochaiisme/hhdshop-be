@@ -5,7 +5,7 @@ const getAllProducts = async (req, res) => {
         let allProducts = await Product.find();
 
         res.status(200).json({
-            products: allProducts,
+            allProducts,
         });
     } catch (err) {
         res.status(500).json({
@@ -27,7 +27,7 @@ const getProductById = async (req, res) => {
             });
         }
         res.status(200).json({
-            product: product,
+            product,
         });
     } catch (err) {
         res.status(500).json({
