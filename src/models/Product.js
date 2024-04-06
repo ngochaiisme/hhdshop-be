@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = new mongoose.Schema(
     {
         id: {
-            type: String,
+            type: Number,
             required: true,
         },
         name: {
@@ -11,7 +11,7 @@ const Schema = new mongoose.Schema(
             required: true,
         },
         price: {
-            type: String,
+            type: Number,
             required: true,
         },
         quantity: {

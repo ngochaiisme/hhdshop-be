@@ -5,10 +5,7 @@ const getAllProducts = async (req, res) => {
         let allProducts = await Product.find();
 
         res.status(200).json({
-            message: 'Success',
-            data: {
-                products: allProducts,
-            },
+            products: allProducts,
         });
     } catch (err) {
         res.status(500).json({
@@ -20,6 +17,26 @@ const getAllProducts = async (req, res) => {
     }
 };
 
+const getProductById = async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const product = await Product.findOne({ id: productId });
+        if (!product) {
+            return res.status(400).json({
+                message: 'Product not found',
+            });
+        }
+        res.status(200).json({
+            product: product,
+        });
+    } catch (err) {
+        res.status(500).json({
+            message: `Error: ${err}`,
+        });
+    }
+};
+
 module.exports = {
     getAllProducts,
+    getProductById,
 };
