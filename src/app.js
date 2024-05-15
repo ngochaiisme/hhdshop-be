@@ -11,15 +11,7 @@ dotenv.config();
 app.use(cors());
 //route
 app.use('/api', product);
-app.use('/test', (req, res) => {
-    res.status(200).json({
-        ok: 'oke guy',
-    });
-});
 
-app.use('/test', (req, res) => {
-    res.send('Hello World');
-});
 //listening
 const PORT = process.env.PORT || 3000;
 connectDB().then(() => {
